@@ -47,7 +47,7 @@ def extract_unq_params(path):
     for f in os.listdir(path):
         file_name, file_ext = os.path.splitext(f)
         if file_ext == '.txt':
-            df_temp = pd.read_csv(path+file_name+'.txt', sep=",", header=1, names=["time", "param", "value"])
+            df_temp = pd.read_csv(path+file_name+'.txt', sep=",", header=0, names=["Time", "Parameter", "Value"])
             arr_data_temp = np.array(df_temp)
             params_temp = arr_data_temp[:, 1]
             if cnt==0:
@@ -94,7 +94,7 @@ def parse_all(path):
     for f in allfiles:
         file_name, file_ext = os.path.splitext(f)
         if file_ext == '.txt':
-            df = pd.read_csv(path+file_name+'.txt', sep=",", header=1, names=["time", "param", "value"])
+            df = pd.read_csv(path+file_name+'.txt', sep=",", header=0, names=["Time", "Parameter", "Value"])
             df_demogr = df.iloc[0:5]
             df_data = df.iloc[5:]
             
