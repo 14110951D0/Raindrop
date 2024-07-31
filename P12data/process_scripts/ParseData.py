@@ -43,6 +43,7 @@ print('arr_outcomes.npy saved')
 # extract all parameters encountered across all patients
 def extract_unq_params(path):
     cnt = 0
+    params_all = []
     for f in os.listdir(path):
         file_name, file_ext = os.path.splitext(f)
         if file_ext == '.txt':
